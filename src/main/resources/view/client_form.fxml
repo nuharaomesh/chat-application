@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="531.0" prefWidth="533.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ClientFormController">
+   <children>
+      <JFXButton layoutX="106.0" layoutY="139.0" prefHeight="52.0" prefWidth="186.0" />
+   </children>
+</AnchorPane>

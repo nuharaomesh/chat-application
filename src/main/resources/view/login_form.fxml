@@ -3,26 +3,50 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="373.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane prefHeight="687.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <TextField fx:id="txtUserName" layoutX="329.0" layoutY="167.0" prefHeight="39.0" prefWidth="195.0" promptText="username" />
-      <Label layoutX="271.0" layoutY="6.0" text="Log-in">
+      <ImageView fitHeight="690.0" fitWidth="825.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/login page.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="358.0" layoutY="577.0" onAction="#btnLoginOnAction" prefHeight="44.0" prefWidth="224.0" style="-fx-background-color: #0644ae; -fx-background-radius: 15;" text="Log-in" textFill="WHITE">
          <font>
-            <Font name="Padauk Bold" size="38.0" />
-         </font>
-      </Label>
-      <Label layoutX="123.0" layoutY="167.0" prefHeight="39.0" prefWidth="175.0" text="Enter your username : ">
-         <font>
-            <Font name="Padauk" size="18.0" />
-         </font>
-      </Label>
-      <JFXButton buttonType="RAISED" layoutX="246.0" layoutY="293.0" onAction="#btnLoginOnAction" prefHeight="39.0" prefWidth="156.0" style="-fx-background-radius: 10;" text="log-in">
-         <font>
-            <Font name="System Bold" size="32.0" />
+            <Font name="Padauk Bold" size="17.0" />
          </font>
       </JFXButton>
+      <TextField fx:id="txtUserName" layoutX="297.0" layoutY="504.0" prefHeight="44.0" prefWidth="345.0" promptText="username" style="-fx-background-radius: 15;">
+         <font>
+            <Font name="Padauk Bold" size="17.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="55.0" fitWidth="191.0" layoutX="345.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chat app txt.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="221.0" fitWidth="285.0" layoutX="25.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/dazzle-line-man-programmer-writing-code-on-a-laptop-1.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="105.0" fitWidth="186.0" layoutX="641.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/sammy-speech-bubble-text.gif" />
+         </image>
+      </ImageView>
+      <Circle fill="#0644ae" layoutX="470.0" layoutY="368.0" radius="110.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <ImageView fitHeight="236.0" fitWidth="237.0" layoutX="353.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/db20e697-8ec3-470d-ad33-f9a3e47cd93b.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="342.0" layoutY="160.0" text="Label" />
    </children>
 </AnchorPane>

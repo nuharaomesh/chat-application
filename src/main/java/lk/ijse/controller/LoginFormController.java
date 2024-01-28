@@ -15,18 +15,17 @@ public class LoginFormController {
     @FXML
     private TextField txtUserName;
 
-    @FXML
-    void btnLoginOnAction(ActionEvent event) throws IOException {
+    public void btnLoginOnAction(ActionEvent event) throws IOException {
 
         if (txtUserName.getText().equals("")) {
-            new Alert(Alert.AlertType.WARNING, "please enter username first !!").show();
+            new Alert(Alert.AlertType.WARNING, "Please enter a username first..").show();
             return;
         }
 
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/client_form.fxml"))));
-        stage.centerOnScreen();
         stage.setTitle(txtUserName.getText());
+        stage.centerOnScreen();
         stage.show();
     }
 }

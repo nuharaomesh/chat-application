@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="531.0" prefWidth="533.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ClientFormController">
+<AnchorPane prefHeight="669.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ClientFormController">
    <children>
-      <JFXButton layoutX="106.0" layoutY="139.0" prefHeight="52.0" prefWidth="186.0" />
+      <Pane layoutX="8.0" layoutY="606.0" prefHeight="55.0" prefWidth="628.0" style="-fx-background-color: #0002; -fx-background-radius: 15;">
+         <children>
+            <TextField fx:id="txtMsg" layoutX="6.0" layoutY="5.0" onAction="#btnSendOnAction" prefHeight="45.0" prefWidth="565.0" promptText="Message" style="-fx-background-radius: 10;" />
+            <Button layoutX="576.0" layoutY="5.0" mnemonicParsing="false" onAction="#btnSendOnAction" prefHeight="45.0" prefWidth="46.0" style="-fx-background-color: black; -fx-background-radius: 50;" text="&gt;" textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ScrollPane prefHeight="593.0" prefWidth="643.0">
+         <content>
+            <VBox fx:id="mainContainer" prefWidth="640.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="641.0">
+                     <children>
+                        <Label text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="61.0" prefWidth="641.0">
+                     <children>
+                        <Label text="Label" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

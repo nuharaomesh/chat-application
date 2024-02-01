@@ -1,11 +1,14 @@
 package lk.ijse.service;
 
+import com.google.gson.Gson;
 import javafx.concurrent.Task;
+import lk.ijse.dto.ReceivedData;
+import lk.ijse.dto.TransferData;
 
 import java.io.*;
 import java.net.Socket;
 
-public class ClientSide extends Task<String> {
+public class ClientSide extends Task<ReceivedData> {
 
     Socket socket;
 
@@ -14,7 +17,7 @@ public class ClientSide extends Task<String> {
     }
 
     @Override
-    protected String call() throws Exception {
+    protected ReceivedData call() throws Exception {
 
         while (true) {
             InputStream inputStream = socket.getInputStream();
@@ -22,13 +25,14 @@ public class ClientSide extends Task<String> {
             String msg = "";
 
             while ((msg = reader.readLine()) != null) {
-                updateValue(msg);
+                updateValue(new ReceivedData(msg));
             }
         }
     }
 
-    public void sendClient(String msg) throws IOException {
+    public void sendClient(TransferData msg) throws IOException {
         PrintStream out = new PrintStream(socket.getOutputStream(), true);
-        out.println(msg);
+        String data = new Gson().toJson(msg);
+        out.println(data);
     }
 }

@@ -1,15 +1,17 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -25,8 +27,12 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class ClientFormController  {
+public class ClientFormController implements Initializable {
 
+    @FXML
+    private Pane emojiPane;
+    @FXML
+    private GridPane gridPane;
     @FXML
     private VBox mainContainer;
     @FXML
@@ -34,6 +40,21 @@ public class ClientFormController  {
     FileChooser fileChooser = new FileChooser();
     ClientSide ob;
     String imgUrl;
+
+    String[]emoji = {
+            "\uD83D\uDE00", // 😀
+            "\uD83D\uDE01", // 😁
+            "\uD83D\uDE02", // 😂
+            "\uD83D\uDE03", // 🤣
+            "\uD83D\uDE04", // 😄
+            "\uD83D\uDE05", // 😅
+            "\uD83D\uDE06", // 😆
+            "\uD83D\uDE07", // 😇
+            "\uD83D\uDE08", // 😈
+            "\uD83D\uDE09", // 😉
+            "\uD83D\uDE0A", // 😊
+            "\uD83D\uDE0B", // 😋
+    };
 
     public void initialize() throws IOException {
 
@@ -154,6 +175,11 @@ public class ClientFormController  {
     }
 
     @FXML
+    void btnEmojiOnAction(ActionEvent event) {
+        emojiPane.setVisible(!emojiPane.isVisible());
+    }
+
+    @FXML
     void btnImageOnAction(ActionEvent event) throws FileNotFoundException {
 
         Initializable initializable = (URL url, ResourceBundle resourceBundle) -> {
@@ -163,4 +189,41 @@ public class ClientFormController  {
         File file = fileChooser.showOpenDialog(new Stage());
         imgUrl = file.getPath();
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+            emojiPane.setVisible(false);
+            int buttonIndex = 0;
+            for (int row = 0; row < 4; row++) {
+                for (int column = 0; column < 3; column++) {
+                    if (buttonIndex < emoji.length) {
+                        String emojies = emoji[buttonIndex];
+                        JFXButton emojiButton = createEmojiButton(emojies);
+                        gridPane.add(emojiButton, column, row);
+                        buttonIndex++;
+                    } else {
+                        break;
+                    }
+                }
+            }
+
+    }
+
+    private JFXButton createEmojiButton(String emoji) {
+        JFXButton button = new JFXButton(emoji);
+        button.getStyleClass().add("emoji-button");
+        button.setOnAction(this::emojiButtonAction);
+        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        GridPane.setFillWidth(button, true);
+        GridPane.setFillHeight(button, true);
+        button.setStyle("-fx-font-size: 15; -fx-text-fill: black; -fx-background-color: #F0F0F0; -fx-border-radius: 50");
+        return button;
+    }
+
+    private void emojiButtonAction(ActionEvent actionEvent) {
+        JFXButton button = (JFXButton) actionEvent.getSource();
+        txtMsg.appendText(button.getText());
+
+    }
+
 }
